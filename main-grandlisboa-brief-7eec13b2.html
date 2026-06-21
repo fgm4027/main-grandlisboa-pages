@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳门新葡京 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            background-color: #f1f0ed;
+            color: #2f2e2b;
+            line-height: 1.75;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: #d9d5cf;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #c7c2ba;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: #3b3833;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #5f5a53;
+            border-top: 1px solid #b2aca3;
+            border-bottom: 1px solid #b2aca3;
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .hero .tagline {
+            margin-top: 0.8rem;
+            font-style: italic;
+            color: #6d675f;
+            font-size: 0.95rem;
+        }
+
+        /* 卡片式分区 */
+        .card {
+            background: #fcfaf8;
+            border: 1px solid #e0dbd4;
+            border-radius: 0;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            border-left: 3px solid #b29b86;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            color: #3f3b35;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin: 1.5rem 0 0.6rem 0;
+            color: #4f4a42;
+        }
+
+        .card p {
+            margin-bottom: 0.9rem;
+            text-align: justify;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.5rem;
+            margin: 0.8rem 0;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #3d3933;
+        }
+
+        .card ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #a3907e;
+        }
+
+        /* 引用/摘录样式 */
+        .quote-block {
+            background: #edeae5;
+            padding: 1.2rem 1.8rem;
+            margin: 1.2rem 0;
+            border-left: 2px solid #b7a99a;
+            font-style: normal;
+            color: #3f3b35;
+        }
+
+        .quote-block cite {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+            color: #736b61;
+        }
+
+        /* 页尾提示 */
+        .footer-note {
+            margin-top: 3rem;
+            padding: 1.5rem 2rem;
+            background: #e5e1da;
+            border: 1px solid #cfc9c0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #45413b;
+        }
+
+        .footer-note a {
+            color: #3f3b35;
+            text-decoration: none;
+            border-bottom: 1px solid #9e9388;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #5f5548;
+            color: #1f1c18;
+        }
+
+        .footer-note .foot-link {
+            font-weight: 400;
+        }
+
+        .footer-note .small-print {
+            font-size: 0.85rem;
+            color: #6f6860;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .footer-note {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+                padding: 1.2rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+                min-height: 160px;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+        }
+
+        /* 小分隔 */
+        .divider {
+            width: 50px;
+            height: 1px;
+            background: #c5bdb3;
+            margin: 1.2rem 0 1.8rem 0;
+        }
+
+        .inline-link {
+            color: #2f2e2b;
+            text-decoration: none;
+            border-bottom: 1px solid #afa497;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #4f463d;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区域 -->
+    <div class="hero">
+        <h1>澳门新葡京</h1>
+        <div class="subhead">日常查询 · 对照 · 延伸阅读</div>
+        <div class="tagline">一本薄薄的杂志，一段安静的浏览</div>
+    </div>
+
+    <!-- 1. 背景与日常关联 -->
+    <div class="card">
+        <h2>从一次搜索开始</h2>
+        <p>许多时候，我们打开浏览器只是为了确认一个地址、一段历史，或者比较不同时期建筑与文化的细微变化。澳门新葡京作为城市轮廓中一个醒目的坐标，频繁出现在旅行备忘、城市研究、甚至建筑爱好者的收藏夹里。它的立面、灯光与周边街巷，早已不只是一栋楼宇，而是一个被反复查询的符号——有人在航班间隙翻阅它的旧照片，有人在规划路线时放大地图上的那一块区域。</p>
+        <div class="quote-block">
+            “关于一座城市的记忆，往往从某个地标的日常查询开始累积。”
+            <cite>—— 一位旅行者的浏览记录</cite>
+        </div>
+        <p>这种查询不带急迫的目的，更像是在收集对照的碎片。今天打开这个页面的你，或许也正处在某种温和的求知欲中：想看看它的模样，想理解它在城市脉络中的位置，或者仅仅是因为偶然读到一段相关文字，想顺手点开一扇窗。</p>
+    </div>
+
+    <!-- 2. 对照与细节观察 -->
+    <div class="card">
+        <h2>对照：外观、旧事与今日</h2>
+        <p>若将不同年份的影像并排放置，会发现建筑轮廓的延续与细微更迭。比如裙楼装饰的色调、入口通道的调整、周边路牌与植被的变换。这些变化往往不在宏大叙事里，而藏在每一次实地到访或网络浏览的细节中。对于经常路过的人而言，这座建筑是一种熟悉的参照物；对于第一次见到它的人来说，它又构成一种全新的视觉印象。</p>
+        <p>关于它的背景资料，比较常见的描述会提及设计风格、楼层数、以及区域内功能分布的演变。但真正让这座建筑成为话题的，是它如何与周围环境共存——左侧的街市、前方的广场、背后密集的住宅群，构成一套完整的日常景观。如果你想了解更多确切的数据与官方介绍，可以访问<a href="https://main--grandlisboa.com" class="inline-link">澳门新葡京</a>，那里有最基础的档案式记录，适合对照阅读。</p>
+        <div class="divider"></div>
+        <h3>几种常见的查询场景</h3>
+        <ul>
+            <li>旅行前确认位置，标记在数字地图上作为路线节点</li>
+            <li>阅读城市纪实作品时，搜索配图与历史沿革</li>
+            <li>建筑爱好者收集立面细节，对比不同时期的改造痕迹</li>
+            <li>纯粹的好奇：想知道它为什么总出现在明信片里</li>
+        </ul>
+    </div>
+
+    <!-- 3. 延伸阅读与思考 -->
+    <div class="card">
+        <h2>延伸：从地标到话题</h2>
+        <p>一个地标之所以值得被反复提及，往往不仅因为物理存在，更因为它成为了一类话题的载体。人们在闲聊中提起“澳门新葡京”时，可能是在讨论现代建筑与古典元素的融合，也可能是在回忆某次旅途中的片刻驻足。它的名字出现在游记、论坛、摄影集里，每一次引用都带着轻微的差异——有人侧重它的几何造型，有人关注它在城市夜景中的光晕，也有人只是把它当作一个坐标，用以描述“我在哪条路的尽头转弯”。</p>
+        <p>这种延伸阅读的乐趣在于：你不必成为专家，也能在零散的信息里拼凑出一幅属于自己的图像。就像翻阅一本旧杂志，有时重点不是文章本身，而是翻页时看见的广告、留白、和页角的折痕。如果你对它的完整背景感兴趣，不妨直接打开 <a href="https://main--grandlisboa.com" class="inline-link">澳门新葡京</a> 的页面，那里存放着最基础的档案式内容，可以帮助你校准记忆或补充空白。</p>
+        <p style="margin-top: 1.2rem; font-style: italic; color: #5e584f;">把浏览当作一次安静的散步，不需要记住所有细节，只需要享受那个过程。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <div class="foot-link">
+            <a href="https://main--grandlisboa.com">澳门新葡京</a> · 杂志专题式介绍
+        </div>
+        <div class="small-print">
+            日常查询 · 对照笔记 · 延伸阅读
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
