@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fde8cd 0%, #f8d5b0 40%, #f2c89a 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2e241b;
+        }
+
+        .card {
+            max-width: 740px;
+            width: 100%;
+            background: #fffdf9;
+            border-radius: 32px;
+            box-shadow: 0 16px 40px -12px rgba(120, 70, 30, 0.25);
+            padding: 2.8rem 2.5rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .card {
+                padding: 2rem 1.4rem;
+                border-radius: 24px;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 540;
+            letter-spacing: -0.02em;
+            color: #4a2f1a;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #f0dcc6;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #7a6248;
+            margin-top: 0.8rem;
+            margin-bottom: 2rem;
+            padding-left: 0.2rem;
+            font-weight: 380;
+        }
+
+        .prose p {
+            margin-bottom: 1.5rem;
+            text-indent: 2em;
+        }
+
+        .prose p:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        .prose a {
+            color: #b56a2c;
+            background: transparent;
+            text-decoration: none;
+            font-weight: 480;
+            padding: 0.04em 0.2em;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.15s;
+            border-bottom: 1px solid #dbaa7a;
+        }
+
+        .prose a:hover {
+            background: #f5e2d0;
+            color: #824d1a;
+            border-bottom-color: #b56a2c;
+        }
+
+        .block-quote {
+            background: #f7efe6;
+            border-left: 4px solid #dbaa7a;
+            padding: 1rem 1.5rem;
+            margin: 1.8rem 0 1.2rem 0;
+            border-radius: 0 14px 14px 0;
+            color: #4d3826;
+            font-size: 0.95rem;
+            text-indent: 0;
+        }
+
+        .block-quote strong {
+            color: #7d4f27;
+        }
+
+        .inline-highlight {
+            background: #faeedf;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            font-weight: 400;
+            color: #5a3f29;
+        }
+
+        .list-slim {
+            list-style: none;
+            margin: 1.6rem 0 1.6rem 0.6rem;
+        }
+
+        .list-slim li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.6rem;
+            position: relative;
+        }
+
+        .list-slim li::before {
+            content: "·";
+            position: absolute;
+            left: 0.3rem;
+            color: #b56a2c;
+            font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        .faq-mini {
+            background: #f8f1ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            margin: 2rem 0 0.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini details:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 480;
+            cursor: pointer;
+            color: #543b24;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            color: #b56a2c;
+            font-size: 1rem;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini p {
+            margin: 0.4rem 0 0.2rem 1.4rem;
+            color: #4f3d2d;
+            font-size: 0.92rem;
+            text-indent: 0;
+        }
+
+        .visit-line {
+            margin-top: 2.4rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid #e7d5c0;
+            font-size: 1.05rem;
+            text-align: center;
+            color: #3e2c1b;
+        }
+
+        .visit-line a {
+            color: #b56a2c;
+            font-weight: 520;
+            text-decoration: none;
+            border-bottom: 1px solid #dbaa7a;
+        }
+
+        .visit-line a:hover {
+            background: #f5e2d0;
+            color: #824d1a;
+        }
+
+        .footer-note {
+            margin-top: 2.2rem;
+            font-size: 0.8rem;
+            color: #8c7a68;
+            text-align: center;
+            letter-spacing: 0.2px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eadbcb;
+            margin: 1.6rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>竞彩网</h1>
+        <div class="subhead">一篇安静的说明 · 关于稳定入口与页面本身</div>
+
+        <div class="prose">
+            <p>
+                许多人在寻找一个可以顺畅浏览的起点。对于经常关注竞彩资讯的用户来说，一个加载稳定、结构清晰的页面往往比花哨的功能更重要。你可能已经注意到，一些信息聚合站点在移动端的体验参差不齐，而<a href="https://chinawap-sporttery.com">竞彩网</a>提供的移动版页面，正是从这种朴素需求出发，保持克制的设计，不堆砌冗余模块。它更像一个干净的转接台——你在这里找到入口，然后继续自己的浏览路径。
+            </p>
+            <p>
+                选择在手机浏览器中直接访问网页，而不是依赖第三方应用或小程序，本身也是出于对可控性的考虑。竞彩网移动版把基础信息与导航放在显眼位置，没有大面积的广告干扰，也没有眼花缭乱的弹窗。它的配色和按钮布局看上去是经过斟酌的：暖灰底、深色文字、圆角按钮，在日光下或夜间阅读都算舒服。这不是一篇评测，只是一个日常使用者的侧面观察。
+            </p>
+
+            <div class="block-quote">
+                <strong>一点提示：</strong> 如果你打算在赛前快速查看数据，建议直接使用浏览器书签收藏<a href="https://chinawap-sporttery.com">竞彩网</a>页面，而不是通过搜索栏临时查找。稳定入口的意义在于减少每一次的等待与跳转。
+            </div>
+
+            <p>
+                就个人感受而言，这个移动站点在页面加载速度和内容层级上保持了不错的平衡。它没有什么“智能推荐”或者“热门预测”，只是把比赛列表、赔率变化、赛果统计这些核心模块组织得比较清晰。有些网站为了留住用户会加入大量互动元素，但这里更倾向于让用户自己决定下一步。页面底部的链接也基本围绕赛事本身，没有过度延伸。
+            </p>
+
+            <p>
+                当然，每个使用者对“好用”的定义不完全一样。有人喜欢更紧凑的数据表格，有人偏好沉浸式的深色模式。但至少从稳定性和基础信息获取来看，这个站点没有多余的干扰。以下是一些它在日常使用中比较突出的特点，也是我写这篇介绍时想提及的：
+            </p>
+
+            <ul class="list-slim">
+                <li>页面结构以信息优先，标题、赔率、时间戳明确，不需要反复缩放。</li>
+                <li>链接采用圆角按钮式设计，触控区域足够大，误触概率低。</li>
+                <li>加载策略偏保守，没有自动播放的视频或动态背景，流量消耗可控。</li>
+                <li>配色以暖色渐变卡片为主，视觉疲劳感较弱，适合长时间浏览。</li>
+            </ul>
+
+            <p>
+                如果你此前主要通过某些综合体育App内嵌页面查看竞彩内容，可能会发现直接访问移动端网页是另一种节奏：没有开屏广告，没有强制更新，也没有“关注主播”之类的浮层。当然，这并不意味着它完美无缺——有些旧版机型在渲染复杂表格时偶尔会有延迟，但总体而言，作为浏览竞彩相关信息的日常入口，它胜任得不错。
+            </p>
+
+            <div class="faq-mini">
+                <details>
+                    <summary>FAQ：这个页面是官方入口吗？</summary>
+                    <p>它是竞彩网针对移动设备适配的网页版本，面向手机浏览器直接访问。你可以把它理解为官方移动门户，不依赖独立App。</p>
+                </details>
+                <details>
+                    <summary>FAQ：数据更新速度如何？</summary>
+                    <p>赔率和赛果数据基本与桌面端保持同步，但具体延迟取决于网络环境。建议在比赛开始前半小时左右刷新页面获取最新数据。</p>
+                </details>
+                <details>
+                    <summary>FAQ：是否支持深色模式？</summary>
+                    <p>目前页面没有内置深色模式切换开关，但你的手机系统如果开启强制深色模式，部分浏览器会尝试反转颜色，效果因人而异。</p>
+                </details>
+            </div>
+
+            <hr>
+
+            <p>
+                最后想说的是，无论你是因为什么机缘找到这里——是朋友推荐，还是自行搜索——都希望这个页面能成为你顺畅浏览的一个起点。如果需要直接前往，下方就是链接；如果你想先收藏，也完全没问题。<a href="https://chinawap-sporttery.com">竞彩网</a>的移动版一直在那里，不喧哗，也不躲藏。
+            </p>
+        </div>
+
+        <div class="visit-line">
+            <a href="https://chinawap-sporttery.com">竞彩网</a> · 稳定入口 · 移动版
+        </div>
+
+        <div class="footer-note">
+            仅作介绍 · 理性浏览 · 保持克制
+        </div>
+    </div>
+</body>
+</html>
